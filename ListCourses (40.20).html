@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DANH SÁCH KHÓA HỌC</title>
+
+    <!-- Nhúng các thư viện BS4 & jQuery, awesome font -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <!-- Các file css và js tự định nghĩa thêm -->
+    <link rel="stylesheet" href="style.css">
+    <script src="ListCourses.js"></script>
+</head>
+
+<body">
+    <!-- Create Courses modal -->
+    <div>
+        <div id="create-modal" class="modal fade" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="h5-modal-title">Thêm khóa học</h5>
+                        <button class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="row col-sm-12">
+                                <div class="col-sm-4">
+                                    <label>Mã khóa học</label>
+                                </div>
+                                <div class="col-sm-8">
+                                    <input id="inp-courseCode" class="form-control">
+                                </div>
+
+                                <div class="col-sm-4 mt-2">
+                                    <label>Tên khóa học</label>
+                                </div>
+                                <div class="col-sm-8 mt-2">
+                                    <input id="inp-courseName" class="form-control">
+                                </div>
+
+                                <div class="col-sm-4 mt-2">
+                                    <label>Giá niêm yết</label>
+                                </div>
+                                <div class="col-sm-8 mt-2">
+                                    <input id="inp-price" class="form-control">
+                                </div>
+
+                                <div class="col-sm-4 mt-2">
+                                    <label>Giá bán thực tế</label>
+                                </div>
+                                <div class="col-sm-8 mt-2">
+                                    <input id="inp-discountPrice" class="form-control">
+                                </div>
+
+                                <div class="col-sm-4 mt-2">
+                                    <label>Độ dài của khóa học</label>
+                                </div>
+                                <div class="col-sm-8 mt-2">
+                                    <input id="inp-duration" class="form-control">
+                                </div>
+
+                                <div class="col-sm-4 mt-2">
+                                    <label>Trình độ khóa học</label>
+                                </div>
+                                <div class="col-sm-8 mt-2">
+                                    <input id="inp-level" class="form-control">
+                                </div>
+
+                                <div class="col-sm-4 mt-2">
+                                    <label>Ảnh nền của khóa học</label>
+                                </div>
+                                <div class="col-sm-8 mt-2">
+                                    <input id="inp-coverImage" class="form-control">
+                                </div>
+                                
+                                <div class="col-sm-4 mt-2">
+                                    <label>Tên đầy đủ của giảng viên</label>
+                                </div>
+                                <div class="col-sm-8 mt-2">
+                                    <input id="inp-teacherName" class="form-control">
+                                </div>
+                                
+                                <div class="col-sm-4 mt-2">
+                                    <label>Ảnh profile của giảng viên</label>
+                                </div>
+                                <div class="col-sm-8 mt-2">
+                                    <input id="inp-teacherPhoto" class="form-control">
+                                </div>
+
+                                <div class="col-sm-4 mt-2 mb-4">
+                                    <label>Popular</label>
+                                </div>
+                                <div class="col-sm-8 mt-2">
+                                    <select id="select-isPopular" class="form-control">
+                                        <option value="1">Có</option>
+                                        <option value="0">Không</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-sm-4 mt-2 mb-4">
+                                    <label>Trending</label>
+                                </div>
+                                <div class="col-sm-8 mt-2">
+                                    <select id="select-isTrending" class="form-control">
+                                        <option value="1">Có</option>
+                                        <option value="0">Không</option>
+                                    </select>
+                                </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="btn-add" class="btn btn-success">Thêm</button>
+                        <button id="btn-back" class="btn btn-success ml-2" data-dismiss="modal">Hủy bỏ</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Update Courses modal -->
+    <div>
+        <div id="update-modal" class="modal fade" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="h5-modal-title">Sửa khóa học</h5>
+                        <button class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="row col-sm-12">
+                                <div class="col-sm-4">
+                                    <label>Mã khóa học</label>
+                                </div>
+                                <div class="col-sm-8">
+                                    <input id="inp-courseCode-update" class="form-control">
+                                </div>
+
+                                <div class="col-sm-4 mt-2">
+                                    <label>Tên khóa học</label>
+                                </div>
+                                <div class="col-sm-8 mt-2">
+                                    <input id="inp-courseName-update" class="form-control">
+                                </div>
+
+                                <div class="col-sm-4 mt-2">
+                                    <label>Giá niêm yết</label>
+                                </div>
+                                <div class="col-sm-8 mt-2">
+                                    <input id="inp-price-update" class="form-control">
+                                </div>
+
+                                <div class="col-sm-4 mt-2">
+                                    <label>Giá bán thực tế</label>
+                                </div>
+                                <div class="col-sm-8 mt-2">
+                                    <input id="inp-discountPrice-update" class="form-control">
+                                </div>
+
+                                <div class="col-sm-4 mt-2">
+                                    <label>Độ dài của khóa học</label>
+                                </div>
+                                <div class="col-sm-8 mt-2">
+                                    <input id="inp-duration-update" class="form-control">
+                                </div>
+
+                                <div class="col-sm-4 mt-2">
+                                    <label>Trình độ khóa học</label>
+                                </div>
+                                <div class="col-sm-8 mt-2">
+                                    <input id="inp-level-update" class="form-control">
+                                </div>
+
+                                <div class="col-sm-4 mt-2">
+                                    <label>Ảnh nền của khóa học</label>
+                                </div>
+                                <div class="col-sm-8 mt-2">
+                                    <input id="inp-coverImage-update" class="form-control">
+                                </div>
+                                
+                                <div class="col-sm-4 mt-2">
+                                    <label>Tên đầy đủ của giảng viên</label>
+                                </div>
+                                <div class="col-sm-8 mt-2">
+                                    <input id="inp-teacherName-update" class="form-control">
+                                </div>
+                                
+                                <div class="col-sm-4 mt-2">
+                                    <label>Ảnh profile của giảng viên</label>
+                                </div>
+                                <div class="col-sm-8 mt-2">
+                                    <input id="inp-teacherPhoto-update" class="form-control">
+                                </div>
+
+                                <div class="col-sm-4 mt-2 mb-4">
+                                    <label>Popular</label>
+                                </div>
+                                <div class="col-sm-8 mt-2">
+                                    <select id="select-isPopular-update" class="form-control">
+                                        <option value="1">Có</option>
+                                        <option value="0">Không</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-sm-4 mt-2 mb-4">
+                                    <label>Trending</label>
+                                </div>
+                                <div class="col-sm-8 mt-2">
+                                    <select id="select-isTrending-update" class="form-control">
+                                        <option value="1">Có</option>
+                                        <option value="0">Không</option>
+                                    </select>
+                                </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="btn-update" class="btn btn-success">Sửa</button>
+                        <button id="btn-back" class="btn btn-success ml-2" data-dismiss="modal">Hủy bỏ</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete confirm modal -->
+  <div>
+    <div class="modal fade" tabindex="-1" id="delete-confirm-modal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="h5-modal-title">Confirm xóa khóa học</h5>
+            <button class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <div class="modal-body">
+            <label>Bạn có chắc chắn muốn xóa khóa học này không?</label>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-danger" id="btn-confirm-delete">Xác nhận</button>
+            <button class="btn btn-secondary" data-dismiss="modal">Hủy bỏ</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    <div class="container mt-4">
+        <h2>Danh sách khóa học</h2>
+        <button id="btn-add-modal" class="btn btn-success">Thêm khóa học</button>
+        <br>
+        <br>
+        <div class="row card-new">
+
+        </div>
+    </div>
+</body>
+
+</html>

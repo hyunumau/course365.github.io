@@ -1,0 +1,30 @@
+.nav-top {
+    height: auto;
+}
+
+.padding-top {
+    padding-top: 45px;
+}
+
+.img-avt {
+    width: 15%;
+}
+
+.gachngang {
+    text-decoration: line-through;
+}
+
+input.empty {
+    font-family: "Font Awesome 5 Free";
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+}
+.card-img-top{
+    width: 253px;
+    height: 150.07px;
+}
+.card{
+    width: 255px;
+    height: 410.04px;
+}
